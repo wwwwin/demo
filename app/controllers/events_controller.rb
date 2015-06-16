@@ -1,0 +1,67 @@
+class EventsController < ApplicationController
+
+before_action :set_event, :only => [ :show, :edit, :update, :destroy]	
+
+	def index
+			def index
+  		@events = Event.page(params[:page]).per(8)
+			
+			respond_to do |formate|
+					format.html # index.html.erb
+					format.xml { render :xml => @events.to_xml }
+					format.json { render :json => @events.to_json }
+					format.atom { @feed_title = "My event list" } # index.atom.builder
+  		end
+	end
+	
+	def new
+  		@event = Event.new
+	end
+
+	def show
+	end
+
+	def create
+  		 @event = Event.new(event_params)
+  	if @event.save
+  			flash[:notice] = "event was successfully created1"
+    		redirect_to events_url :action => :index
+  	else
+    		render :action => :new
+    		
+	  end
+
+	end
+
+	def edit
+  		
+	end
+
+	def update
+  if @event.update(event_params)
+    redirect_to events_url(@event) 
+  else
+    render :action => :edit
+  end
+end
+
+
+	def destroy
+		 
+		  @event.destroy
+
+  redirect_to :action => :index
+	end
+
+	end
+
+
+	private
+
+	def event_params
+  		params.require(:event).permit(:name, :description)	
+	end
+
+	def set_event
+  		@event = Event.find(params[:id])
+	end

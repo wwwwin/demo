@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration
       t.boolean :is_public
       t.integer :capacity
 
-      t.timestamps
+      t.timestamps null :false 
     end
   end
 end
