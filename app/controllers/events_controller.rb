@@ -3,10 +3,9 @@ class EventsController < ApplicationController
 before_action :set_event, :only => [ :show, :edit, :update, :destroy]	
 
 	def index
-			def index
-  		@events = Event.page(params[:page]).per(8)
+  		@events = Event.page(params[:page]).per(6)
 			
-			respond_to do |formate|
+			respond_to do |format|
 					format.html # index.html.erb
 					format.xml { render :xml => @events.to_xml }
 					format.json { render :json => @events.to_json }
