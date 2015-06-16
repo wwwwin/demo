@@ -37,6 +37,7 @@ gem 'rails_12factor', group: :production
 group :development, :test do
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
