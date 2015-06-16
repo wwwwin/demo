@@ -24,7 +24,7 @@ before_action :set_event, :only => [ :show, :edit, :update, :destroy]
   		 @event = Event.new(event_params)
   	if @event.save
   			flash[:notice] = "event was successfully created1"
-    		redirect_to events_url :action => :index
+    		redirect_to events_url 
   	else
     		render :action => :new	
 	  end
