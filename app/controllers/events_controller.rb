@@ -26,14 +26,11 @@ before_action :set_event, :only => [ :show, :edit, :update, :destroy]
   			flash[:notice] = "event was successfully created1"
     		redirect_to events_url :action => :index
   	else
-    		render :action => :new
-    		
+    		render :action => :new	
 	  end
-
 	end
 
 	def edit
-  		
 	end
 
 	def update
@@ -42,20 +39,15 @@ before_action :set_event, :only => [ :show, :edit, :update, :destroy]
   else
     render :action => :edit
   end
+	end
+
+	def destroy		 
+		  @event.destroy
+  		redirect_to :action => :index
+	end
 end
 
-
-	def destroy
-		 
-		  @event.destroy
-
-  redirect_to :action => :index
-	end
-
-	end
-
-
-	private
+private
 
 	def event_params
   		params.require(:event).permit(:name, :description)	
