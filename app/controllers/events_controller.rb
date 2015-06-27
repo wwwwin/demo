@@ -40,11 +40,11 @@ end
 	end
 
 	def update
-  if @event.update(event_params)
-    redirect_to events_url(@event) 
-  else
-    render :action => :edit
-  end
+	  if @event.update(event_params)
+	    redirect_to events_url 
+	  else
+	    render :action => :edit
+	  end
 	end
 
 	def destroy		 
