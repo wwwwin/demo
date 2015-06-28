@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :events do
+    resources :attendees, :controller => "event_attendees"
+  end
 
   #  resources :people
 
   #get "welcome/say_hello" => "welcome#say"
-  
+
   #get "welcome" => "welcome#index"
 
   # ...
@@ -63,6 +65,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  #   
-  
+  #
+
 end
