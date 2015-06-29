@@ -1,4 +1,5 @@
 class EventAttendeesController < ApplicationController
+  before_action :find_event
 
   def index
     @attendees = @event.attendees
@@ -9,7 +10,7 @@ class EventAttendeesController < ApplicationController
   end
 
   def new
-    @attendees = @event.attendees.build
+    @attendee = @event.attendees.build
   end
 
   def create
@@ -35,9 +36,9 @@ class EventAttendeesController < ApplicationController
 
   end
 
-  def destory
-    @attendee = @event.attendee.find( params[:id])
-    @attendee.destory
+  def destroy
+    @attendee = @event.attendees.find( params[:id])
+    @attendee.destroy
 
     redirect_to event_attendees_url( @event)
   end

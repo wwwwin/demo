@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-before_action :set_event, :only => [ :show, :edit, :update, :destroy]	
+before_action :set_event, :only => [ :show, :edit, :update, :destroy]
 
 def index
   @events = Event.page(params[:page]).per(5)
@@ -12,7 +12,7 @@ def index
     format.atom { @feed_title = "My event list" } # index.atom.builder
   end
 end
-	
+
 	def new
   		@event = Event.new
 	end
@@ -30,9 +30,9 @@ end
   		 @event = Event.new(event_params)
   	if @event.save
   			flash[:notice] = "event was successfully created1"
-    		redirect_to events_url 
+    		redirect_to events_url
   	else
-    		render :action => :new	
+    		render :action => :new
 	  end
 	end
 
@@ -41,13 +41,13 @@ end
 
 	def update
 	  if @event.update(event_params)
-	    redirect_to events_url 
+	    redirect_to events_url
 	  else
 	    render :action => :edit
 	  end
 	end
 
-	def destroy		 
+	def destroy
 		  @event.destroy
   		redirect_to :action => :index
 	end
@@ -56,9 +56,9 @@ end
 private
 
 	def event_params
-  		params.require(:event).permit(:name, :description)	
+      params.require(:event).permit(:name, :description, :category_id)
 	end
 
 	def set_event
-  		@event = Event.find(params[:id])
+      @event = Event.find(params[:id])
 	end

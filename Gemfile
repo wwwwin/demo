@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 gem "kaminari"
 
+gem "better_errors"
+
 gem 'bootstrap-sass', '~> 3.3.5'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -45,5 +47,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-	
+
 

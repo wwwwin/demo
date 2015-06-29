@@ -9,7 +9,7 @@ class CreateAttendees < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :attendees, :events_id
+    add_index :attendees, :event_id
 
   end
 end
